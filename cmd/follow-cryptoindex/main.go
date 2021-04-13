@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	coingecko "github.com/superoo7/go-gecko/v3"
+	"github.com/superoo7/go-gecko/v3/types"
 	"log"
 	"net/http"
 	"time"
@@ -15,7 +16,7 @@ func main() {
 
 	gecko := coingecko.NewClient(httpClient)
 
-	coins, err := gecko.CoinsMarket("USD", make([]string, 0), "", 1, 1, true, make([]string, 0))
+	coins, err := gecko.CoinsMarket("USD", make([]string, 0), types.OrderTypeObject.MarketCapDesc, 1, 1, true, make([]string, 0))
 
 	if err != nil {
 		log.Fatal("error xd")
