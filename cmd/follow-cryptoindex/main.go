@@ -13,7 +13,7 @@ func main() {
 		Timeout: time.Second * 10,
 	}
 
-	coins, err := coingecko.NewClient(httpClient).CoinsMarket("USD", make([]string, 0), "", 3, 1, true, make([]string, 0))
+	coins, err := coingecko.NewClient(httpClient).CoinsMarket("USD", make([]string, 0), "", 1, 1, true, make([]string, 0))
 
 	if err != nil {
 		log.Fatal("error xd")
@@ -22,5 +22,9 @@ func main() {
 	for _, s := range *coins {
 		fmt.Println(s.Name)
 		fmt.Println(s.MarketCap)
+
+		for _, price := range s.SparklineIn7d.Price {
+			fmt.Println(price)
+		}
 	}
 }
