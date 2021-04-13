@@ -13,7 +13,9 @@ func main() {
 		Timeout: time.Second * 10,
 	}
 
-	coins, err := coingecko.NewClient(httpClient).CoinsMarket("USD", make([]string, 0), "", 1, 1, true, make([]string, 0))
+	gecko := coingecko.NewClient(httpClient)
+
+	coins, err := gecko.CoinsMarket("USD", make([]string, 0), "", 1, 1, true, make([]string, 0))
 
 	if err != nil {
 		log.Fatal("error xd")
